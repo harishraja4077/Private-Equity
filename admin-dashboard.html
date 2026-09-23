@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Admin Dashboard - Stackly</title>
+<meta name="description" content="Stackly admin dashboard - oversight, portfolio, analytics, reports, users and settings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="dash">
+ <aside class="sidebar" id="sidebar">
+ <div class="side-brand">
+ <img src="Assets/logo.webp" alt="Stackly" class="brand-logo">
+ <div class="side-brand-txt">
+ <b>Stackly</b>
+ <div class="side-role">Admin Console</div>
+ </div>
+ </div>
+ <nav class="side-nav" aria-label="Dashboard">
+ <p class="nav-label">General</p>
+ <a class="side-link" href="#sub=overview" data-sub="overview" data-title="Executive Overview" data-subtitle="Firm-wide snapshot at a glance"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span>Overview</span></a>
+ <a class="side-link" href="#sub=portfolio" data-sub="portfolio" data-title="Portfolio Management" data-subtitle="Holdings, allocations and performance"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span>Portfolio</span></a>
+ <a class="side-link" href="#sub=analytics" data-sub="analytics" data-title="Analytics" data-subtitle="Firm performance intelligence"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span><span>Analytics</span></a>
+ <p class="nav-label">Operations</p>
+ <a class="side-link" href="#sub=reports" data-sub="reports" data-title="Reports" data-subtitle="Generate, schedule and audit reports"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><span>Reports</span></a>
+ <a class="side-link" href="#sub=users" data-sub="users" data-title="User Management" data-subtitle="Invite, assign roles and manage access"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><span>Users <span class="badge">12</span></span></a>
+ <a class="side-link" href="#sub=settings" data-sub="settings" data-title="Settings" data-subtitle="Firm profile, security and preferences"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="m4.9 4.9 2.1 2.1"/><path d="m17 17 2.1 2.1"/><path d="m19.1 4.9-2.1 2.1"/><path d="m7 17-2.1 2.1"/></svg></span><span>Settings</span></a>
+ </nav>
+ <div class="side-card">
+ <b>System Healthy</b>
+ <p>All services operational. Last backup 2 hours ago.</p>
+ <a href="signin.html" class="btn btn-primary">Sign Out</a>
+ </div>
+ </aside>
+ <div class="dash-overlay overlay"></div>
+
+ <div class="main">
+ <header class="topbar">
+ <button class="menu-btn" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg></button>
+ <div>
+ <div class="page-title">Executive Overview</div>
+ <div class="page-sub">Firm-wide snapshot at a glance</div>
+ </div>
+ <div class="topbar-actions">
+ <div class="search-box"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><input type="text" placeholder="Search deals, funds, users..."></div>
+ <a href="404.html" class="icon-btn" aria-label="Notifications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></a>
+ <a href="404.html" class="icon-btn" aria-label="Help"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></a>
+ <div class="user-chip"><img src="Assets/avatar-admin.webp" alt="Adrian Hart"><div><b>Adrian Hart</b><small>Managing Partner</small></div></div>
+ </div>
+ </header>
+
+ <!-- ============ SUBPAGE 1: OVERVIEW ============ -->
+ <main class="content" data-page id="pg-overview">
+ <section class="dash-section" data-reveal><div class="sec-title">Key Performance Indicators</div><div class="sec-sub">Live figures across funds and portfolio companies</div>
+ <div class="kpi-grid">
+ <div class="kpi"><div class="lbl">AUM <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span></div><div class="val"><span data-count="4.2" data-decimals="1" data-suffix="B">0</span></div><div class="delta up"> 8.3% this year</div></div>
+ <div class="kpi"><div class="lbl">Net IRR <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span></div><div class="val"><span data-count="27" data-suffix="%">0</span></div><div class="delta up"> 2.1 pts</div></div>
+ <div class="kpi"><div class="lbl">Portfolio Cos <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M12 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg></span></div><div class="val"><span data-count="38">0</span></div><div class="delta up"> 4 new this year</div></div>
+ <div class="kpi"><div class="lbl">Dry Powder <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/></svg></span></div><div class="val"><span data-count="1.2" data-decimals="1" data-suffix="B">0</span></div><div class="delta down"> 0.3 pts deployed</div></div>
+ </div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">Fund Allocations</div><div class="sec-sub">Committed capital by fund, current quarter</div>
+ <div class="grid-2d">
+ <div class="panel"><canvas data-donut="35,25,22,18" data-colors="#c9a96a,#1a3a63,#2fbf71,#33415a" style="width:100%;height:230px;display:block"></canvas>
+ <div class="chart-legend"><span class="legend-dot"><i style="background:#c9a96a"></i> Fund IV - 35%</span><span class="legend-dot"><i style="background:#1a3a63"></i> Fund V - 25%</span><span class="legend-dot"><i style="background:#2fbf71"></i> Growth Fund - 22%</span><span class="legend-dot"><i style="background:#33415a"></i> Co-Invest - 18%</span></div>
+ </div>
+ <div class="panel">
+ <div class="panel-head"><h3>Capital Deployment</h3></div>
+ <div class="metric-row"><b>Fund IV</b><span>$1.47B of $1.9B</span></div>
+ <div class="progress"><i style="width:0%" data-bar="77"></i></div>
+ <div class="metric-row mt-2"><b>Fund V</b><span>$680M of $1.4B</span></div>
+ <div class="progress"><i style="width:0%" data-bar="49"></i></div>
+ <div class="metric-row mt-2"><b>Vintage Co-Invest</b><span>$350M of $420M</span></div>
+ <div class="progress"><i style="width:0%" data-bar="83"></i></div>
+ </div>
+ </div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Recent Activity &amp; Quick Actions</div>
+ <div class="grid-2d">
+ <ul class="feed">
+ <li><div class="fio"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><b>CloudNest add-on closed</b><p>Strategic acquisition of Dataforge Ltd for $62M</p></div><time>2h ago</time></li>
+ <li><div class="fio"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></div><div><b>Q2 LP report generated</b><p>Fund V quarterly investor letter dispatched</p></div><time>1d ago</time></li>
+ <li><div class="fio"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg></div><div><b>New user invited</b><p>Priya Nair granted analyst access to Fund V</p></div><time>2d ago</time></li>
+ <li><div class="fio"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div><div><b>Deal approved</b><p>NorthPeak add-on passed second-gate committee</p></div><time>3d ago</time></li>
+ </ul>
+ <div class="panel">
+ <div class="row-actions mb-3">
+<a href="404.html" class="btn btn-primary btn-sm" data-action="approve">Approve Deal</a>
+  <a href="404.html" class="btn btn-dark btn-sm" data-action="invite">Invite User</a>
+ </div>
+ <div class="row-actions">
+<a href="404.html" class="btn btn-outline btn-sm" data-action="export">Export Report</a>
+  <a href="404.html" class="btn btn-outline btn-sm" data-action="download">Download Data</a>
+ </div>
+ <div class="mt-4"><p class="sec-sub">Pending approvals</p>
+ <div class="list-plain"><ul>
+ <li><span>Capital call - Fund V</span><b class="pill o">Awaiting</b></li>
+ <li><span>ESG screening report</span><b class="pill o">In review</b></li>
+ <li><span>Buddy bridge facility</span><b class="pill b">Drafting</b></li>
+ </ul></div>
+ </div>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <!-- ============ SUBPAGE 2: PORTFOLIO ============ -->
+ <main class="content" data-page id="pg-portfolio">
+ <section class="dash-section" data-reveal><div class="sec-title">Holdings Overview</div><div class="sec-sub">Portfolio companies by fund and sector</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>Company</th><th>Sector</th><th>Fund</th><th>Ownership</th><th>Value</th><th>MOIC</th><th>Status</th></tr></thead>
+ <tbody>
+ <tr><td><div class="cell-main"><img src="Assets/portfolio-1.webp" alt="CloudNest"> CloudNest Analytics</div></td><td>Technology</td><td>Fund V</td><td>72%</td><td>$410M</td><td class="trend up">2.4x</td><td><span class="pill g">Growth</span></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/portfolio-2.webp" alt="Aurion Health"> Aurion Health</div></td><td>Healthcare</td><td>Fund IV</td><td>85%</td><td>$385M</td><td class="trend up">3.1x</td><td><span class="pill b">Stabilized</span></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/portfolio-3.webp" alt="NorthPeak"> NorthPeak Systems</div></td><td>Industrials</td><td>Fund IV</td><td>65%</td><td>$172M</td><td class="trend up">1.8x</td><td><span class="pill o">Restructuring</span></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/portfolio-4.webp" alt="Vantage Grid"> Vantage Grid</div></td><td>Technology</td><td>Growth</td><td>41%</td><td>$298M</td><td class="trend up">4.2x</td><td><span class="pill g">Exiting</span></td></tr>
+ </tbody>
+ </table></div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">Sector Allocation</div><div class="sec-sub">Invested capital spread by vertical</div>
+ <div class="grid-2d">
+ <div class="panel">
+ <div class="metric-row"><b>Technology &amp; SaaS</b><span>34%</span></div><div class="progress"><i style="width:0%" data-bar="34"></i></div>
+ <div class="metric-row mt-2"><b>Healthcare</b><span>27%</span></div><div class="progress"><i style="width:0%" data-bar="27"></i></div>
+ <div class="metric-row mt-2"><b>Industrials</b><span>18%</span></div><div class="progress"><i style="width:0%" data-bar="18"></i></div>
+ <div class="metric-row mt-2"><b>Financial Services</b><span>13%</span></div><div class="progress"><i style="width:0%" data-bar="13"></i></div>
+ <div class="metric-row mt-2"><b>Climate Infra</b><span>8%</span></div><div class="progress"><i style="width:0%" data-bar="8"></i></div>
+ </div>
+ <div class="panel"><canvas data-donut="34,27,18,13,8" data-colors="#c9a96a,#1a3a63,#2fbf71,#33415a,#e4575d" style="width:100%;height:240px;display:block"></canvas></div>
+ </div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Performance vs Benchmark</div><div class="sec-sub">Net TVPI by vintage against NCREIF &amp; public equivalents</div>
+ <canvas data-line="1.2,1.35,1.28,1.6,1.75,1.9,2.05,2.3,2.45,2.6" style="width:100%;height:240px;display:block"></canvas>
+ </section>
+ </main>
+
+ <!-- ============ SUBPAGE 3: ANALYTICS ============ -->
+ <main class="content" data-page id="pg-analytics">
+ <section class="dash-section" data-reveal><div class="sec-title">Deal Flow Pipeline</div><div class="sec-sub">Sourcing volume and conversion by stage, trailing 12 months</div>
+ <canvas data-line="18,24,31,28,42,39,51,47,63,58,72,69" style="width:100%;height:280px;display:block"></canvas>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">AUM Trajectory</div><div class="sec-sub">Quarterly assets under management in $B</div>
+ <div class="panel">
+ <div class="hbar">
+ <div class="bar-col"><i data-bar="30" style="height:0%"></i><div class="hb-x"><span>Q1</span></div></div>
+ <div class="bar-col"><i data-bar="42" style="height:0%"></i><div class="hb-x"><span>Q2</span></div></div>
+ <div class="bar-col"><i data-bar="38" style="height:0%"></i><div class="hb-x"><span>Q3</span></div></div>
+ <div class="bar-col"><i data-bar="55" style="height:0%"></i><div class="hb-x"><span>Q4</span></div></div>
+ <div class="bar-col"><i data-bar="68" style="height:0%"></i><div class="hb-x"><span>Q5</span></div></div>
+ <div class="bar-col"><i data-bar="74" style="height:0%"></i><div class="hb-x"><span>Q6</span></div></div>
+ <div class="bar-col"><i data-bar="86" style="height:0%"></i><div class="hb-x"><span>Q7</span></div></div>
+ <div class="bar-col"><i data-bar="100" style="height:0%"></i><div class="hb-x"><span>Q8</span></div></div>
+ </div>
+ <div class="hbar-legend-x"><span>2024</span><span>2025</span><span>2026</span></div>
+ </div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Insights Feed</div><div class="sec-sub">Model outputs and portfolio signals</div>
+ <div class="kpi-grid kpi-3">
+ <div class="kpi"><div class="lbl">Pipeline Ratio</div><div class="val">3.8:1</div><p class="sec-sub" style="margin:0">Deals screened : closed</p></div>
+ <div class="kpi"><div class="lbl">Add-on Velocity</div><div class="val">2.4<span style="font-size:.9rem"> /yr</span></div><p class="sec-sub" style="margin:0">Average per platform</p></div>
+ <div class="kpi"><div class="lbl">ESG Score</div><div class="val" style="color:var(--green)">A+</div><p class="sec-sub" style="margin:0">Portfolio median</p></div>
+ </div>
+ </section>
+ </main>
+
+ <!-- ============ SUBPAGE 4: REPORTS ============ -->
+ <main class="content" data-page id="pg-reports">
+ <section class="dash-section" data-reveal><div class="sec-title">Report Library</div><div class="sec-sub">Audited statements, LP letters and diligence packs</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>Report</th><th>Type</th><th>Period</th><th>Status</th><th></th></tr></thead>
+ <tbody>
+ <tr><td><div class="cell-main"><span style="width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(201,169,106,.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span> Fund V Annual Audit</div></td><td>Audit</td><td>FY 2025</td><td><span class="pill g">Approved</span></td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="download">Download</a></td></tr>
+ <tr><td><div class="cell-main"><span style="width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(201,169,106,.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span> Q2 LP Investor Letter</div></td><td>Investor</td><td>Q2 2026</td><td><span class="pill g">Issued</span></td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="download">Download</a></td></tr>
+ <tr><td><div class="cell-main"><span style="width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(201,169,106,.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span> ESG Screening Matrix</div></td><td>ESG</td><td>Q2 2026</td><td><span class="pill o">In review</span></td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="download">Download</a></td></tr>
+ <tr><td><div class="cell-main"><span style="width:38px;height:38px;border-radius:9px;display:grid;place-items:center;background:rgba(201,169,106,.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span> Q1 Performance Pack</div></td><td>Performance</td><td>Q1 2026</td><td><span class="pill g">Issued</span></td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="download">Download</a></td></tr>
+ </tbody>
+ </table></div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">Scheduled Reports</div><div class="sec-sub">Automated generation calendar</div>
+ <div class="list-plain"><ul>
+ <li><span>Weekly pipeline digest</span><b>Every Mon, 06:00</b></li>
+ <li><span>Monthly valuation report</span><b>1st of month, 07:00</b></li>
+ <li><span>Quarterly LP pack</span><b>10th of quarter end</b></li>
+ <li><span>Annual ESG disclosure</span><b>Feb 1</b></li>
+ </ul></div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Generate a Report</div><div class="sec-sub">On-demand custom exports</div>
+ <form data-dash-form novalidate class="row-actions" style="flex-wrap:wrap">
+ <select class="select" style="max-width:260px"><option>Fund V Performance</option><option>All Funds Blended</option><option>Deal Pipeline</option><option>User Activity</option></select>
+ <select class="select" style="max-width:180px"><option>PDF</option><option>Excel</option><option>CSV</option></select>
+ <button type="submit" class="btn btn-primary">Generate Report</button>
+ </form>
+ </section>
+ </main>
+
+ <!-- ============ SUBPAGE 5: USERS ============ -->
+ <main class="content" data-page id="pg-users">
+ <section class="dash-section" data-reveal><div class="sec-title">User Directory</div><div class="sec-sub">Manage access to the Stackly platform</div>
+ <div class="tbl-wrap"><table class="tbl">
+ <thead><tr><th>User</th><th>Role</th><th>Status</th><th>Last Active</th><th></th></tr></thead>
+ <tbody>
+ <tr><td><div class="cell-main"><img src="Assets/avatar-admin.webp" alt="Adrian Hart"> Adrian Hart</div></td><td><span class="pill b">Admin</span></td><td><span class="pill g">Active</span></td><td>2 min ago</td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="save">Edit</a></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/team-2.webp" alt="Elena Vos"> Elena Vos</div></td><td><span class="pill b">Admin</span></td><td><span class="pill g">Active</span></td><td>1h ago</td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="save">Edit</a></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/team-3.webp" alt="Marcus Chen"> Marcus Chen</div></td><td><span class="pill p">Analyst</span></td><td><span class="pill g">Active</span></td><td>3h ago</td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="save">Edit</a></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/team-4.webp" alt="Priya Nair"> Priya Nair</div></td><td><span class="pill p">Analyst</span></td><td><span class="pill o">Pending</span></td><td>-</td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="approve">Approve</a></td></tr>
+ <tr><td><div class="cell-main"><img src="Assets/team-5.webp" alt="Tom Becker"> Tom Becker</div></td><td><span class="pill b">Admin</span></td><td><span class="pill r">Suspended</span></td><td>12d ago</td><td><a href="404.html" class="btn btn-outline btn-sm" data-action="approve">Reinstate</a></td></tr>
+ </tbody>
+ </table></div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">Role Matrix</div><div class="sec-sub">Permission levels across the firm</div>
+ <div class="grid-3d">
+ <div class="kpi" style="margin:0"><div class="lbl" style="white-space:nowrap">Admin</div><p class="sec-sub" style="margin-top:.6rem">Full access - deals, reports, users, settings, data export.</p></div>
+ <div class="kpi" style="margin:0"><div class="lbl">Analyst</div><p class="sec-sub" style="margin-top:.6rem">Deal pipeline, portfolio read, report generation.</p></div>
+ <div class="kpi" style="margin:0"><div class="lbl">Limited LP</div><p class="sec-sub" style="margin-top:.6rem">Self-service statements and document downloads.</p></div>
+ </div>
+ </section>
+<section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Invite Member</div><div class="sec-sub">Add a new user to the platform</div>
+  <form data-dash-form novalidate style="display:grid;gap:1rem;max-width:520px">
+  <div class="field"><label>Email Address</label><input class="input" type="email" required placeholder="colleague@gmail.com"></div>
+  <div class="field"><label>Role</label><select class="select"><option>Analyst</option><option>Admin</option><option>Limited LP</option></select></div>
+  <button type="submit" class="btn btn-primary" style="width:auto">Send Invitation</button>
+  </form>
+  </section>
+ </main>
+
+ <!-- ============ SUBPAGE 6: SETTINGS ============ -->
+ <main class="content" data-page id="pg-settings">
+ <section class="dash-section" data-reveal><div class="sec-title">Firm Profile</div><div class="sec-sub">General information displayed to partners and LPs</div>
+<form data-dash-form novalidate style="display:grid;gap:1rem;max-width:640px;grid-template-columns:1fr 1fr">
+  <div class="field"><label>Firm Name</label><input class="input" required value="Stackly Partners LLP"></div>
+  <div class="field"><label>Region</label><select class="select"><option>North America</option><option>Europe</option><option>APAC</option></select></div>
+  <div class="field"><label>HQ Address</label><input class="input" required value="Stackly MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008"></div>
+  <div class="field"><label>Contact Email</label><input class="input" id="firm-email" type="email" required value="thestackly@gmail.com"></div>
+  <button type="submit" class="btn btn-primary" style="width:auto">Save Profile</button>
+  </form>
+ </section>
+ <section class="dash-section" data-reveal style="--d:90ms"><div class="sec-title">Security</div><div class="sec-sub">Authentication, MFA and session controls</div>
+ <div class="list-plain"><ul>
+ <li><span>Two-factor authentication</span><b><span class="pill g">Enabled</span></b></li>
+ <li><span>Session timeout</span><b><span class="pill b">15 minutes</span></b></li>
+ <li><span>IP allow-listing</span><b><span class="pill o">Not configured</span></b></li>
+ <li><span>Change password</span><b><a href="404.html" class="btn btn-outline btn-sm" data-action="save">Update</a></b></li>
+ </ul></div>
+ </section>
+ <section class="dash-section" data-reveal style="--d:180ms"><div class="sec-title">Preferences</div><div class="sec-sub">Notifications and dashboard preferences</div>
+ <div class="list-plain"><ul>
+ <li><span>Deal alerts</span><b><span class="pill g">Weekly</span></b></li>
+ <li><span>LP correspondence</span><b><span class="pill g">Immediate</span></b></li>
+ <li><span>Report exports</span><b><span class="pill b">Monthly digest</span></b></li>
+ <li><span>Dark mode</span><b><a href="404.html" class="btn btn-outline btn-sm" data-action="save">Toggle</a></b></li>
+ </ul></div>
+ </section>
+ </main>
+
+ </div>
+</div>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
