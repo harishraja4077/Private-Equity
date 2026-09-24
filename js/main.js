@@ -12,7 +12,7 @@
   const auth = rPath === 'signin.html' || rPath === 'signup.html';
   const allowSel = auth
   ? '.brand, .auth-back, .auth-alt a, .role-switch, .pw-toggle, form[data-auth-form] button[type="submit"]'
-  : '.site-header, .brand, .footer-company, .faq-q, .cat-pill, .to-top, .lightbox, .arrow-btn, .testi-dot, form[data-newsletter] button[type="submit"], form[data-demo] button[type="submit"]';
+  : '.site-header, .brand, .footer-company, .faq-q, .cat-pill, .to-top, .lightbox, .arrow-btn, .testi-dot, .cta-band, form[data-newsletter] button[type="submit"], form[data-demo] button[type="submit"]';
   document.addEventListener('click', function (e) {
   const t = e.target;
   const el = t && typeof t.closest === 'function' ? t.closest('a[href], button, input[type="submit"]') : null;
