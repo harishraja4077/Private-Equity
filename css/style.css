@@ -455,11 +455,11 @@ h3{font-size:clamp(1.15rem,2vw,1.45rem);}
 /* ---------- Map section ---------- */
 .map-loc{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(5,13,24,.5);}
 .map-loc iframe{filter:saturate(.85);}
-.map-cta{position:absolute;left:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);max-width:420px;color:var(--white);text-decoration:none;background:rgba(5,13,24,.92);border:1px solid rgba(201,169,106,.35);border-radius:18px;padding:1.5rem 1.75rem;backdrop-filter:blur(6px);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
+.map-cta{position:absolute;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);max-width:420px;color:var(--white);text-decoration:none;background:rgba(5,13,24,.92);border:1px solid rgba(201,169,106,.35);border-radius:18px;padding:1.5rem 1.75rem;backdrop-filter:blur(6px);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
 .map-cta:hover{transform:translateY(-5px);box-shadow:0 20px 45px -18px rgba(0,0,0,.7);}
 .map-cta h2{margin:.5rem 0 .6rem;font-size:clamp(1.3rem,2.5vw,1.7rem);}
 .map-cta p{color:rgba(255,255,255,.7);font-size:.85rem;max-width:360px;margin:0 0 1.1rem;}
-@media (max-width:640px){.map-cta{position:relative;border-radius:0;max-width:none;bottom:auto;left:auto;}}
+@media (max-width:640px){.map-cta{position:relative;border-radius:0;max-width:none;bottom:auto;left:auto;right:auto;}}
 
 /* ---------- Forms ---------- */
 .input,.textarea,.select{

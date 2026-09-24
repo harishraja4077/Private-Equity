@@ -9,14 +9,26 @@
  const sidebar = document.querySelector('.sidebar');
  const overlay = document.querySelector('.dash-overlay');
 
- /* ---------- Animated bar charts ---------- */
- function animateBars() {
- document.querySelectorAll('[data-page]:not([style*="display: none"]) [data-bar]').forEach(bar => {
- const h = bar.dataset.bar;
- bar.style.height = '0%';
- requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.height = h + '%'; }));
- });
- }
+/* ---------- Animated bar charts ---------- */
+  function animateBars() {
+  document.querySelectorAll('[data-page]:not([style*="display: none"]) [data-bar]').forEach(bar => {
+  const h = bar.dataset.bar;
+  bar.style.transition = 'none';
+  if (bar.closest('.progress')) {
+  bar.style.width = '0%';
+  } else {
+  bar.style.height = '0%';
+  }
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+  bar.style.transition = '';
+  if (bar.closest('.progress')) {
+  bar.style.width = h + '%';
+  } else {
+  bar.style.height = h + '%';
+  }
+  }));
+  });
+  }
 
  /* ---------- Counters ---------- */
  const counters = document.querySelectorAll('[data-count]');
@@ -281,6 +293,16 @@
   inp.addEventListener('input', () => clearFieldError(inp));
   });
   });
+
+/* ---------- Search box: Enter redirects to 404 ---------- */
+   document.querySelectorAll('.search-box input').forEach(inp => {
+   inp.addEventListener('keydown', e => {
+   if (e.key === 'Enter') {
+   e.preventDefault();
+   location.href = '404.html';
+   }
+   });
+   });
 
 /* ---------- Redirect section CTA/links to 404 (dashboards) ---------- */
    const dashAllow = '#sidebar, .menu-btn, .dash-overlay, form[data-dash-form] button[type="submit"]';
