@@ -327,6 +327,7 @@ h3{font-size:clamp(1.15rem,2vw,1.45rem);}
  font-weight:700;font-size:.86rem;transition:gap .3s var(--ease);
 }
 .icon-card a.link:hover{gap:.8rem;}
+.icon-card .btn{margin-top:1.2rem;}
 .light-rows .icon-card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.09);}
 .light-rows .icon-card p{color:rgba(255,255,255,.6);}
 .light-rows .icon-card h3{color:var(--white);}

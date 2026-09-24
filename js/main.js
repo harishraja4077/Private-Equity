@@ -290,36 +290,64 @@
  });
  });
 document.querySelectorAll('form[data-auth-form]').forEach(form => {
-  form.addEventListener('submit', e => {
-  e.preventDefault();
-  const mail = form.querySelector('#si-email, #su-email');
-  if (mail) {
-  if (!mail.value.trim()) {
-  showFieldError(mail, 'Please enter your email address.');
-  return;
-  }
-  if (!isValidGmail(mail.value)) {
-  showFieldError(mail, 'Please enter a valid Gmail address ending with "@gmail.com".');
-  return;
-  }
-  }
-  const role = (form.querySelector('input[name="role"]') || {}).value || 'user';
-  const isSignin = form.querySelector('#si-email') !== null;
-  const loginEmail = mail ? mail.value.trim() : '';
-  if (loginEmail) localStorage.setItem('stackly_user_email', loginEmail);
-  showToast(isSignin
-  ? (role === 'admin' ? 'Admin signed in successfully.' : 'Signed in successfully.')
-  : (role === 'admin' ? 'Admin account created. Please sign in.' : 'Account created. Please sign in.'));
-  setTimeout(() => {
-  location.href = isSignin
-  ? (role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html')
-  : 'signin.html';
-  }, 750);
-  });
-  });
-  document.querySelectorAll('#si-email, #su-email').forEach(inp => {
-  inp.addEventListener('input', () => clearFieldError(inp));
-  });
+   form.addEventListener('submit', e => {
+   e.preventDefault();
+   let ok = true;
+   form.querySelectorAll('[required]').forEach(inp => {
+   if (inp.type === 'checkbox') {
+   if (!inp.checked) {
+   clearFieldError(inp);
+   const err = document.createElement('div');
+   err.className = 'field-error';
+   err.textContent = 'Please tick this box to continue.';
+   const host = inp.closest('.check-row');
+   (host || inp.parentElement).after(err);
+   inp.classList.add('error');
+   ok = false;
+   }
+   return;
+   }
+   if (!inp.value.trim()) {
+   const msg = inp.type === 'email' ? 'Please enter your email address.'
+   : inp.type === 'password' ? 'Please enter your password.'
+   : inp.id === 'su-fname' ? 'Please enter your first name.'
+   : inp.id === 'su-lname' ? 'Please enter your last name.'
+   : 'Please fill in this field.';
+   showFieldError(inp, msg);
+   ok = false;
+   return;
+   }
+   if (inp.type === 'email' && !isValidGmail(inp.value)) {
+   showFieldError(inp, 'Please enter a valid Gmail address ending with "@gmail.com".');
+   ok = false;
+   return;
+   }
+   if (inp.type === 'password' && inp.value.trim().length < 8) {
+   showFieldError(inp, 'Password must be at least 8 characters long.');
+   ok = false;
+   return;
+   }
+   });
+   if (!ok) return;
+   const mail = form.querySelector('#si-email, #su-email');
+   const role = (form.querySelector('input[name="role"]') || {}).value || 'user';
+   const isSignin = form.querySelector('#si-email') !== null;
+   const loginEmail = mail ? mail.value.trim() : '';
+   if (loginEmail) localStorage.setItem('stackly_user_email', loginEmail);
+   showToast(isSignin
+   ? (role === 'admin' ? 'Admin signed in successfully.' : 'Signed in successfully.')
+   : (role === 'admin' ? 'Admin account created. Please sign in.' : 'Account created. Please sign in.'));
+   setTimeout(() => {
+   location.href = isSignin
+   ? (role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html')
+   : 'signin.html';
+   }, 750);
+   });
+   });
+  document.querySelectorAll('form[data-auth-form] [required]').forEach(inp => {
+   inp.addEventListener('input', () => clearFieldError(inp));
+   inp.addEventListener('change', () => clearFieldError(inp));
+   });
 const newsletter = document.querySelector('.newsletter form');
   if (newsletter) newsletter.addEventListener('submit', e => {
   e.preventDefault();

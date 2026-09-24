@@ -294,10 +294,24 @@
   });
   });
 
-/* ---------- Search box: Enter redirects to 404 ---------- */
+/* ---------- Search box: Enter clears bar then redirects to 404 ---------- */
    document.querySelectorAll('.search-box input').forEach(inp => {
    inp.addEventListener('keydown', e => {
    if (e.key === 'Enter') {
+   e.preventDefault();
+   inp.value = '';
+   location.href = '404.html';
+   }
+   });
+   });
+
+/* ---------- User chip / profile bar redirects to 404 ---------- */
+   document.querySelectorAll('.user-chip').forEach(chip => {
+   chip.addEventListener('click', () => { location.href = '404.html'; });
+   chip.style.cursor = 'pointer';
+   chip.setAttribute('tabindex', '0');
+   chip.addEventListener('keydown', e => {
+   if (e.key === 'Enter' || e.key === ' ') {
    e.preventDefault();
    location.href = '404.html';
    }
