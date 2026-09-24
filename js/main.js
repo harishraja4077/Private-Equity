@@ -12,7 +12,7 @@
   const auth = rPath === 'signin.html' || rPath === 'signup.html';
   const allowSel = auth
   ? '.brand, .auth-back, .auth-alt a, .role-switch, .pw-toggle, form[data-auth-form] button[type="submit"]'
-  : '.site-header, .brand, .footer-company, .faq-q, .cat-pill, .to-top, .lightbox, .arrow-btn, .testi-dot, .cta-band, form[data-newsletter] button[type="submit"], form[data-demo] button[type="submit"]';
+  : '.site-header, .brand, .footer-company, .hero-actions, .faq-q, .cat-pill, .to-top, .lightbox, .arrow-btn, .testi-dot, .cta-band, form[data-newsletter] button[type="submit"], form[data-demo] button[type="submit"]';
   document.addEventListener('click', function (e) {
   const t = e.target;
   const el = t && typeof t.closest === 'function' ? t.closest('a[href], button, input[type="submit"]') : null;
@@ -395,13 +395,22 @@ const newsletter = document.querySelector('.newsletter form');
  });
 
  /* ---------- Typewriter (hero) ---------- */
- const typer = document.querySelector('[data-typer]');
- if (typer) {
- const words = (typer.dataset.typer || '').split('|').filter(Boolean);
- if (words.length) {
- let wi = 0, ci = 0, deleting = false;
- const caret = '<span style="color:var(--gold-500)">|</span>';
- (function type() {
+  const typer = document.querySelector('[data-typer]');
+  if (typer) {
+  const words = (typer.dataset.typer || '').split('|').filter(Boolean);
+  if (words.length) {
+  let wi = 0, ci = 0, deleting = false;
+  const caret = '<span style="color:var(--gold-500)">|</span>';
+  /* Size the box to the widest word once so the line never reflows */
+  const probe = typer.cloneNode(false);
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;left:-99999px;top:0;z-index:-1';
+  probe.textContent = '';
+  document.body.appendChild(probe);
+  let maxW = 0;
+  words.forEach(w => { probe.textContent = w; maxW = Math.max(maxW, probe.offsetWidth); });
+  document.body.removeChild(probe);
+  typer.style.cssText = 'display:inline-block;min-width:' + (maxW + 2) + 'px;text-align:center;vertical-align:baseline';
+  (function type() {
  const word = words[wi];
  typer.innerHTML = word.slice(0, ci) + caret;
  if (!deleting) {
