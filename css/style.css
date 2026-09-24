@@ -123,6 +123,8 @@ h3{font-size:clamp(1.15rem,2vw,1.45rem);}
 }
 .site-nav a:hover,.site-nav a.active{color:var(--gold-400);}
 .site-nav a:hover::after,.site-nav a.active::after{width:100%;}
+.site-nav{display:flex;align-items:center;justify-content:center;flex:1;}
+.site-nav ul{display:flex;align-items:center;justify-content:center;gap:2.6rem;}
 .nav-cta{display:flex;align-items:center;gap:.9rem;}
 .nav-toggle{
  display:none;width:46px;height:46px;border-radius:11px;background:rgba(255,255,255,.08);
@@ -684,15 +686,10 @@ input.input:focus.error,textarea.input:focus.error{border-color:#e4575d;}
    .site-nav.open{opacity:1;visibility:visible;transform:none;}
    .site-nav .nav-brand{display:block;position:absolute;top:1.5rem;left:1.5rem;}
    .site-nav .nav-brand .brand-logo{height:46px;width:auto;display:block;}
-    .site-nav ul{flex-direction:column;gap:0;align-items:center;text-align:center;width:100%;padding:0;list-style:none;margin:0;}
-    .site-nav ul li:nth-child(1){margin-bottom:2.4rem;}
-    .site-nav ul li:nth-child(2){margin-bottom:2.9rem;}
-    .site-nav ul li:nth-child(3){margin-bottom:2.5rem;}
-    .site-nav ul li:nth-child(4){margin-bottom:3.2rem;}
-    .site-nav ul li:nth-child(5){margin-bottom:0;}
+    .site-nav ul{flex-direction:column;gap:3.4rem;align-items:center;text-align:center;width:100%;padding:0;list-style:none;margin:0;}
    .site-nav a{font-size:1.3rem;line-height:1.5;padding:.4rem 1rem;border-radius:10px;transition:background .3s,color .3s;}
    .site-nav a:hover{background:rgba(201,169,106,.12);color:var(--gold-400);}
-   .site-nav .nav-signin{display:inline-flex;margin-top:3.2rem;min-width:220px;justify-content:center;padding:.95rem 1.9rem;}
+   .site-nav .nav-signin{display:inline-flex;margin-top:3rem;min-width:220px;justify-content:center;padding:.95rem 1.9rem;}
  .nav-toggle{display:block;}
  .nav-close{
  display:grid;place-items:center;position:absolute;top:1.4rem;right:1.4rem;
